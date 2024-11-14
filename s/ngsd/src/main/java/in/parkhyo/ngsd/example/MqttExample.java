@@ -4,9 +4,8 @@ import org.eclipse.paho.client.mqttv3.IMqttMessageListener;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
-import org.springframework.stereotype.Component;
+//import org.springframework.stereotype.Component;
 
-@Component
 public class MqttExample {
 
     private String latestMessage = "";  // 최근 수신된 메시지를 저장하는 변수
