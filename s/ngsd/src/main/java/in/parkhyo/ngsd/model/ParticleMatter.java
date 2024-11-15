@@ -11,7 +11,7 @@ import lombok.Setter;
 @Data
 public class ParticleMatter {
 
-    private String location;
+    private String id;
     private LocalDateTime timestamp;
     private Double pm10;
     private Double pm2_5;
