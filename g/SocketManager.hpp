@@ -5,6 +5,10 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
+#include <iostream>
+#include <cstring>
+#include <unistd.h>
+#include <stdexcept>
 
 using namespace std;
 class SocketManager : public ISocketManager {
@@ -22,7 +26,9 @@ public:
             throw std::runtime_error("Failed to connect to the server!");
         }
     };
+
     int connectSocket() override;
+    int sendToSocket(const char* msg) override;
     
     ~SocketManager() {
         if (clientSocket >= 0) {

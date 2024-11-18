@@ -20,3 +20,12 @@ int SocketManager::connectSocket() {
     std::cout << "Connected to server at " << server_ip << ":" << port << std::endl;
     return 0; // 연결 성공
 }
+
+int SocketManager::sendToSocket(const char* msg) {
+    if (send(clientSocket, msg, strlen(msg), 0) < 0) {
+        std::cerr << "무슨 오류 때문에 메세지 못 보냈음" << std::endl;
+        return -1;
+    }
+
+    return 0;
+}

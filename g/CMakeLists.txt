@@ -19,3 +19,5 @@ target_link_libraries(SocketTest
     /usr/local/lib/libgtest_main.a
     pthread
 )
+
+add_executable(SocketApp SocketManager.cpp main.cpp)
