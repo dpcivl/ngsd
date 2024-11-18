@@ -6,13 +6,11 @@
 class MockSocketManager : public ISocketManager {
 public:
     MOCK_METHOD(int, connectSocket, (), (override));
+    MOCK_METHOD(int, sendToSocket, (const char* test_msg), (override));
 };
 
 using ::testing::Return;
 
-TEST(SocketTest, SocketClientCreateTest) {
-
-}
 TEST(SocketTest, SocketConnectTest) {
     MockSocketManager mockSocketManager;
 
@@ -25,5 +23,18 @@ TEST(SocketTest, SocketConnectTest) {
     int res = mockSocketManager.connectSocket();
 
     // 결과 검증
+    ASSERT_EQ(res, 1);
+}
+
+TEST(SocketTest, SocketSendTest) {
+    MockSocketManager mockSocketManager;
+    const char* test_msg = "Hello, server!";
+
+    EXPECT_CALL(mockSocketManager, sendToSocket(test_msg))
+        .Times(1)
+        .WillOnce(Return(1));
+
+    int res = mockSocketManager.sendToSocket(test_msg);
+
     ASSERT_EQ(res, 1);
 }
