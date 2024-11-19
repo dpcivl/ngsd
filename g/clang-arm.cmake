@@ -10,8 +10,10 @@ set(CMAKE_ASM_COMPILER clang)
 set(CMAKE_C_FLAGS "--target=arm-linux-gnueabihf")
 set(CMAKE_CXX_FLAGS "--target=arm-linux-gnueabihf")
 
-# # sysroot 경로 설정 (필요 시)
-# set(CMAKE_SYSROOT /usr/arm-linux-gnueabihf)
+# # sysroot 설정
+# set(CMAKE_SYSROOT raspberrypi-sysroot)
 
-# # 링크 단계에서 sysroot 및 라이브러리 경로 추가
-# set(CMAKE_EXE_LINKER_FLAGS "--sysroot=/usr/arm-linux-gnueabihf")
+# # 컴파일 플래그에 sysroot 포함
+# set(CMAKE_C_FLAGS "--sysroot=${CMAKE_SYSROOT}")
+# set(CMAKE_CXX_FLAGS "--sysroot=${CMAKE_SYSROOT}")
+# set(CMAKE_EXE_LINKER_FLAGS "--sysroot=${CMAKE_SYSROOT}")
