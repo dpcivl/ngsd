@@ -6,3 +6,8 @@
 ## installed package
 - libc6:armhf
 - libstdc++6:armhf
+
+# rsync 방법
+```bash
+rsync -avzL <유저명>@<라즈베리파이_주소>:/lib .
+```
